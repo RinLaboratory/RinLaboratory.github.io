@@ -9,7 +9,6 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://rinlaboratory.github.io",
-  base: "/RinLaboratory/",
   integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
