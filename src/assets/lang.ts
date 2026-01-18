@@ -191,7 +191,10 @@ const langProjects = {
         "MongoDB",
         "Node.js",
       ],
-      githubUrl: "https://github.com/RinLaboratory/IngSoftware2.Frontend",
+      githubUrl: [
+        "https://github.com/RinLaboratory/IngSoftware2.Frontend",
+        "https://github.com/RinLaboratory/IngSoftware2.Backend",
+      ],
       featured: true,
     },
     {
@@ -210,7 +213,10 @@ const langProjects = {
         "MongoDB",
         "Node.js",
       ],
-      githubUrl: "https://github.com/RinLaboratory/ProyectoTitulo-Front",
+      githubUrl: [
+        "https://github.com/RinLaboratory/ProyectoTitulo-Front",
+        "https://github.com/RinLaboratory/ProyectoTitulo-Back",
+      ],
       featured: true,
     },
     {
@@ -219,7 +225,7 @@ const langProjects = {
         "Sistema de monitoreo de servicios de minecraft en tiempo real, con la capacidad de notificar a las partes interesadas cuando estos servicios cumplen con ciertas condiciones.",
       image: ["/server-monitor-1.png", "/server-monitor-2.png"],
       technologies: ["TypeScript", "JavaScript", "Node.js", "Discord.js"],
-      githubUrl: "https://github.com/RinLaboratory/MC-Server-Notifier",
+      githubUrl: ["https://github.com/RinLaboratory/MC-Server-Notifier"],
       featured: true,
     },
     {
@@ -241,7 +247,7 @@ const langProjects = {
         "Node-Cron",
         "Redis",
       ],
-      githubUrl: "#",
+      githubUrl: [],
       featured: false,
     },
     {
@@ -254,7 +260,7 @@ const langProjects = {
         "/blog-placeholder-1.jpg",
       ],
       technologies: ["Python", "Anthropic", "JungleScout", "BrightData"],
-      githubUrl: "#",
+      githubUrl: [],
       featured: false,
     },
   ],

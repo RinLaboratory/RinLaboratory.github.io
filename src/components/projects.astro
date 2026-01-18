@@ -59,15 +59,19 @@ const otherProjects = projects.filter((p) => !p.featured);
                     </Badge>
                   ))}
                 </div>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-muted-foreground hover:text-primary transition-colors ml-auto"
-                  aria-label={`View ${project.title} on GitHub`}
-                >
-                  <Github class="h-5 w-5" />
-                </a>
+                <div class="flex flex-row ml-auto gap-4">
+                  {project.githubUrl.map((url) => (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label={`View ${project.title} on GitHub`}
+                    >
+                      <Github class="h-5 w-5" />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
