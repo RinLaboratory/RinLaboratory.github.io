@@ -1,0 +1,42 @@
+---
+import { Mail, ArrowUpRight } from "@lucide/astro";
+import lang from "../assets/lang";
+import applyHTMLStyles from "../lib/apply-html-styles";
+---
+
+<section id="contact" class="mb-16 scroll-mt-16 lg:mb-24 lg:scroll-mt-24">
+  <div
+    class="sticky top-0 z-20 -mx-6 mb-4 bg-background/80 px-6 py-5 backdrop-blur lg:hidden"
+  >
+    <h2
+      class="text-sm font-bold uppercase tracking-widest text-foreground"
+      set:html={applyHTMLStyles(lang.langContact.contact)}
+    />
+  </div>
+
+  <div class="space-y-6">
+    <p
+      class="text-muted-foreground leading-relaxed max-w-md"
+      set:html={applyHTMLStyles(lang.langContact.message)}
+    />
+
+    <a
+      href=`mailto:${lang.langContact.mailto}`
+      class="group inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+    >
+      <Mail class="h-4 w-4" />
+      <p set:html={applyHTMLStyles(lang.langContact.sendMail)} />
+      <ArrowUpRight
+        class="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+      />
+    </a>
+  </div>
+
+  {/* Footer */}
+  <footer class="mt-16 pt-8 border-t border-border">
+    <p
+      class="text-xs text-muted-foreground leading-relaxed"
+      set:html={applyHTMLStyles(lang.langContact.footer)}
+    />
+  </footer>
+</section>

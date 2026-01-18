@@ -1,0 +1,108 @@
+---
+import { Github } from "@lucide/astro";
+import Carousel from "./ui/carousel.astro";
+import Badge from "./ui/badge.astro";
+import lang from "../assets/lang";
+import applyHTMLStyles from "../lib/apply-html-styles";
+
+const projects = lang.langProjects.workedProjects;
+
+const featuredProjects = projects.filter((p) => p.featured);
+const otherProjects = projects.filter((p) => !p.featured);
+---
+
+<section class="mb-16 scroll-mt-16 lg:mb-24 lg:scroll-mt-24">
+  <div
+    class="sticky top-0 z-20 -mx-6 mb-8 bg-background/80 px-6 py-5 backdrop-blur lg:relative lg:mx-0 lg:px-0 lg:py-0 lg:mb-12"
+  >
+    <h2
+      class="text-2xl font-bold text-foreground lg:text-3xl"
+      set:html={applyHTMLStyles(lang.langProjects.projects)}
+    />
+
+    <p
+      class="mt-2 text-muted-foreground"
+      set:html={applyHTMLStyles(lang.langProjects.description)}
+    />
+  </div>
+
+  {/* Featured Projects */}
+  <div class="mb-12">
+    <h3
+      class="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6"
+      set:html={applyHTMLStyles(lang.langProjects.featuredProjects)}
+    />
+
+    <div class="space-y-8">
+      {
+        featuredProjects.map((project) => (
+          <div class="group relative rounded-lg border border-border/50 overflow-hidden transition-all hover:border-border hover:bg-secondary/30">
+            <div class="relative w-full aspect-video rounded-lg overflow-hidden">
+              <Carousel images={project.image} />
+            </div>
+
+            <div class="p-6">
+              <h4 class="font-semibold text-foreground text-lg">
+                {project.title}
+              </h4>
+              <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {project.description}
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3">
+                <div class="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <Badge
+                      variant="secondary"
+                      class="bg-primary/10 text-primary hover:bg-primary/20"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-muted-foreground hover:text-primary transition-colors ml-auto"
+                  aria-label={`View ${project.title} on GitHub`}
+                >
+                  <Github class="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  {/* Other Projects */}
+  <div>
+    <h3
+      class="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6"
+      set:html={applyHTMLStyles(lang.langProjects.otherProjects)}
+    />
+    <div class="grid gap-4 sm:grid-cols-2">
+      {
+        otherProjects.map((project) => (
+          <div class="group relative rounded-lg border border-border/50 p-5 transition-all hover:border-border hover:bg-secondary/30">
+            <h4 class="font-medium text-foreground">{project.title}</h4>
+            <p class="mt-2 text-sm text-muted-foreground line-clamp-2">
+              {project.description}
+            </p>
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {project.technologies.map((tech) => (
+                <Badge
+                  variant="secondary"
+                  class="bg-primary/10 text-primary text-xs hover:bg-primary/20"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

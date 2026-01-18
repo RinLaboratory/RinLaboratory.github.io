@@ -1,0 +1,65 @@
+---
+import { ExternalLink } from "@lucide/astro";
+import Badge from "./ui/badge.astro";
+import lang from "../assets/lang";
+import applyHTMLStyles from "../lib/apply-html-styles";
+
+const experiences = lang.langExperience.jobs;
+---
+
+<section id="experience" class="mb-16 scroll-mt-16 lg:mb-24 lg:scroll-mt-24">
+  <div
+    class="sticky top-0 z-20 -mx-6 mb-4 bg-background/80 px-6 py-5 backdrop-blur lg:hidden"
+  >
+    <h2
+      class="text-sm font-bold uppercase tracking-widest text-foreground"
+      set:html={applyHTMLStyles(lang.langExperience.experience)}
+    />
+  </div>
+
+  <div class="space-y-12">
+    {
+      experiences.map((exp) => (
+        <div class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:opacity-100! lg:group-hover/list:opacity-50">
+          <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-secondary/50" />
+
+          <header
+            class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2"
+            set:html={applyHTMLStyles(exp.period)}
+          />
+
+          <div class="z-10 sm:col-span-6">
+            <h3 class="font-medium leading-snug">
+              <a
+                href={exp.companyUrl}
+                class="group/link inline-flex items-baseline text-foreground hover:text-primary focus-visible:text-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span
+                  class="font-semibold"
+                  set:html={applyHTMLStyles(`${exp.title} · ${exp.company}`)}
+                />
+                <ExternalLink class="ml-1 h-3.5 w-3.5 shrink-0 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+              </a>
+            </h3>
+            <p
+              class="mt-2 text-sm text-muted-foreground leading-relaxed"
+              set:html={applyHTMLStyles(exp.description)}
+            />
+            <div class="mt-4 flex flex-wrap gap-2">
+              {exp.technologies.map((tech) => (
+                <Badge
+                  variant="secondary"
+                  class="bg-primary/10 text-primary hover:bg-primary/20"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+import { Github, Linkedin, Mail } from "@lucide/astro";
+import lang from "../assets/lang";
+import applyHTMLStyles from "../lib/apply-html-styles";
+
+const socials = lang.langProfile.socials;
+
+const socialLinks = [
+  { icon: Github, href: socials.github, label: "GitHub" },
+  { icon: Linkedin, href: socials.linkedin, label: "LinkedIn" },
+  { icon: Mail, href: socials.email, label: "Email" },
+];
+
+const pageLinks = lang.langProfile.items;
+---
+
+<div class="pl-24">
+  <h1
+    class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl"
+    set:html={applyHTMLStyles(lang.langProfile.name)}
+  />
+
+  <h2
+    class="mt-3 text-lg font-medium text-primary sm:text-xl"
+    set:html={applyHTMLStyles(lang.langProfile.job)}
+  />
+
+  <h2
+    class="mt-4 max-w-xs text-muted-foreground leading-relaxed"
+    set:html={applyHTMLStyles(lang.langProfile.description)}
+  />
+
+  {/* Page Navigation for mobile */}
+  <div class="mt-6 flex items-center gap-4 lg:hidden">
+    {
+      pageLinks.map(({ label, href }) => (
+        <a
+          href={href}
+          class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+        >
+          {label}
+        </a>
+      ))
+    }
+  </div>
+
+  {/* Social Links */}
+  <div class="mt-8 flex items-center gap-5">
+    {
+      socialLinks.map(({ icon: Icon, href, label }) => (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted-foreground transition-colors hover:text-primary"
+          aria-label={label}
+        >
+          <Icon class="h-5 w-5" />
+        </a>
+      ))
+    }
+  </div>
+</div>

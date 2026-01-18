@@ -1,0 +1,97 @@
+---
+import lang from "../assets/lang";
+const pageNavItems = lang.langNavigation.items;
+
+const { pathname } = Astro.url;
+---
+
+<div class="hidden relative lg:block self-start left-2/6">
+  <ul class="space-y-4">
+    <!-- Page Navigation -->
+    {
+      pageNavItems.map(({ label, href, sections }) => {
+        const isActive = pathname === href;
+        return (
+          <>
+            <li>
+              <a
+                href={href}
+                class:list={[
+                  "group flex items-center gap-4 text-md font-medium tracking-widest transition-all duration-300",
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
+                ]}
+              >
+                <span
+                  class:list={[
+                    "h-px bg-current transition-all duration-300",
+                    isActive ? "w-16" : "w-8 group-hover:w-16",
+                  ]}
+                />
+                {label}
+              </a>
+            </li>
+            {sections && (
+              <>
+                {sections.map(({ label, href: sectionHref }) => (
+                  <li>
+                    <a
+                      href={`${href}${sectionHref}`}
+                      class="section-link group flex items-center gap-4 text-md font-medium tracking-widest transition-all duration-300 text-muted-foreground hover:text-foreground"
+                      data-section={href.slice(1)}
+                    >
+                      <span class="section-indicator h-px bg-current transition-all duration-300 w-6 group-hover:w-12" />
+                      {label}
+                    </a>
+                  </li>
+                ))}
+                <li class="pt-4">
+                  <span class="h-px w-4 bg-border block" />
+                </li>
+              </>
+            )}
+          </>
+        );
+      })
+    }
+  </ul>
+</div>
+
+<script>
+  // Client-side script for section highlighting based on hash
+  const isHomePage = window.location.pathname === "/";
+
+  if (isHomePage) {
+    const sectionLinks = document.querySelectorAll(".section-link");
+
+    function updateActiveSection() {
+      // Get current hash, remove the '#' and default to 'about' if empty
+      const currentHash = window.location.hash.slice(1) || "about";
+
+      // Update active states based on hash
+      sectionLinks.forEach((link) => {
+        const linkSection = link.getAttribute("data-section");
+        const indicator = link.querySelector(".section-indicator");
+
+        if (linkSection === currentHash) {
+          link.classList.remove("text-muted-foreground");
+          link.classList.add("text-foreground");
+          indicator?.classList.remove("w-6");
+          indicator?.classList.add("w-12");
+        } else {
+          link.classList.remove("text-foreground");
+          link.classList.add("text-muted-foreground");
+          indicator?.classList.remove("w-12");
+          indicator?.classList.add("w-6");
+        }
+      });
+    }
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", updateActiveSection);
+
+    // Set initial state
+    updateActiveSection();
+  }
+</script>

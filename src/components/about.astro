@@ -1,0 +1,18 @@
+---
+import lang from "../assets/lang";
+import applyHTMLStyles from "../lib/apply-html-styles";
+---
+
+<section id="about" class="mb-16 scroll-mt-16 lg:mb-24 lg:scroll-mt-24">
+  <div
+    class="sticky top-0 z-20 -mx-6 mb-4 bg-background/80 px-6 py-5 backdrop-blur lg:hidden"
+  >
+    <h2 class="text-sm font-bold uppercase tracking-widest text-foreground">
+      <div set:html={applyHTMLStyles(lang.langAbout.about)} />
+    </h2>
+  </div>
+
+  <div class="space-y-4 text-muted-foreground leading-relaxed">
+    <div set:html={applyHTMLStyles(lang.langAbout.presentation)} />
+  </div>
+</section>
