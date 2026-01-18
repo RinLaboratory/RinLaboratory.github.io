@@ -4,6 +4,7 @@ import { cn } from "../lib";
 const pageNavItems = lang.langNavigation.items;
 
 const { pathname } = Astro.url;
+const normalizedPath = pathname.replace(/\/$/, "") ?? "/";
 ---
 
 <div class="hidden relative lg:block self-start left-2/6">
@@ -11,7 +12,7 @@ const { pathname } = Astro.url;
     <!-- Page Navigation -->
     {
       pageNavItems.map(({ label, href, sections }) => {
-        const isActive = pathname === href;
+        const isActive = normalizedPath === href;
         return (
           <>
             <li>
