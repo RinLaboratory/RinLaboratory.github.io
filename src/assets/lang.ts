@@ -37,7 +37,7 @@ const langContact = {
   message:
     "Estoy siempre en busca de nuevas oportunidades para contribuir a proyectos desafiantes en el campo del desarrollo de software y la ingeniería informática. Si tienes una pregunta, idea de proyecto o quieres saludar, mi contacto siempre estará disponible.",
   mailto: "m.chiong.supp+github@gmail.com",
-  sendMail: "Salúdame",
+  sendMail: "Contacto",
   footer: "Hecho con 💕 por Matías Chiong. 2026 ©",
 };
 
@@ -180,9 +180,9 @@ const langProjects = {
       title: "Página Intranet Iglesia Santo Toribio",
       description: `Proyecto creado en colaboración con la iglesia "Santo Toribio", para facilitar la gestión y administración de documentos eclesiásticos con la finalidad de reducir tiempos operativos y errores humanos.`,
       image: [
-        "/santo-toribio-1.png",
-        "/santo-toribio-2.png",
-        "/santo-toribio-3.png",
+        "/santo-toribio-1.webp",
+        "/santo-toribio-2.webp",
+        "/santo-toribio-3.webp",
       ],
       technologies: [
         "React.js",
@@ -201,10 +201,10 @@ const langProjects = {
       title: "Página Intranet Enfermería de Colegio",
       description: `Mi proyecto de título, "Sistema de eventos de colegio con el propósito de almacenar un historial médico escolar", Creado para facilitar la gestion y administración de historiales médicos de estudiantes y funcionarios con la finalidad de reducir tiempos operativos y errores humanos.`,
       image: [
-        "/proyecto-titulo-1.png",
-        "/proyecto-titulo-2.png",
-        "/proyecto-titulo-3.png",
-        "/proyecto-titulo-4.png",
+        "/proyecto-titulo-1.webp",
+        "/proyecto-titulo-2.webp",
+        "/proyecto-titulo-3.webp",
+        "/proyecto-titulo-4.webp",
       ],
       technologies: [
         "React.js",
@@ -223,7 +223,7 @@ const langProjects = {
       title: "Sistema de Monitoreo de Servicios Minecraft",
       description:
         "Sistema de monitoreo de servicios de minecraft en tiempo real, con la capacidad de notificar a las partes interesadas cuando estos servicios cumplen con ciertas condiciones.",
-      image: ["/server-monitor-1.png", "/server-monitor-2.png"],
+      image: ["/server-monitor-1.webp", "/server-monitor-2.webp"],
       technologies: ["TypeScript", "JavaScript", "Node.js", "Discord.js"],
       githubUrl: ["https://github.com/RinLaboratory/MC-Server-Notifier"],
       featured: true,
