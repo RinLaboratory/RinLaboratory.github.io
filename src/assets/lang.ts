@@ -26,7 +26,7 @@ const langNavigation = {
 const langAbout = {
   about: "Sobre mí",
   presentation: `
-    Cuento con más de 3 años de experiencia como desarrollador de software.\\n\\n
+    Cuento con más de 4 años de experiencia como desarrollador de software.\\n\\n
     Mi trabajo se enfoca en un punto especial donde el diseño, la **implementación** y la **innovación** crean experiencias que no solamente se ven elegantes, si no que también son **rápidas**, **robustas** y fáciles de usar.\\n\\n
     He tenido la oportunidad de **aprender**, **aplicar** mis conocimientos y **liderar** implementaciones en ambientes que varían desde pymes hasta empresas establecidas estando siempre comprometido con la **continua entrega de valor** y **calidad** garantizando siempre un **trabajo excepcional**.\n\n
     `,
